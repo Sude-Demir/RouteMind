@@ -3,6 +3,7 @@ RouteMind
 RouteMind kullanıcıların şehirleri ve gezilecek yerleri keşfedebileceği, grup gezileri planlayabileceği ve yapay zeka destekli rota önerileri alabileceği bir gezi planlama uygulamasıdır. Proje web ve mobil platformlarda çalışacak şekilde tasarlanmaktadır.
 
 Kullanılan Teknolojiler
+
 Frontend
 
 React
@@ -36,4 +37,5 @@ routemind
 │
 ├── backend        # Node.js + Express API
 │
+
 └── web            # React + TypeScript web uygulaması
