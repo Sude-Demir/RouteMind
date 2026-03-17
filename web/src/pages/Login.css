@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+.login-page {
+  display: flex;
+  height: calc(100vh - 58px);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  background: #f5f0eb;
+  overflow: hidden;
+}
+
+/* ===== SOL TARAF - FORM ===== */
+.login-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  background: #f5f0eb;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dekoratif arka plan deseni */
+.login-left::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(107, 143, 113, 0.06) 0%, transparent 70%);
+  top: -50px;
+  right: -50px;
+}
+
+.login-left::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(107, 143, 113, 0.05) 0%, transparent 70%);
+  bottom: 50px;
+  left: -30px;
+}
+
+.login-form-container {
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo */
+.login-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.login-logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #6b8f71, #4a7c59);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.login-logo-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #1a3c34;
+  letter-spacing: -0.5px;
+}
+
+.login-logo-text span {
+  font-style: italic;
+  color: #2d5a4c;
+}
+
+/* Başlıklar */
+.login-welcome {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 6px 0;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.login-subtitle {
+  font-size: 0.85rem;
+  color: #9a8e80;
+  margin: 0 0 22px 0;
+  line-height: 1.5;
+}
+
+/* ===== FORM ALANLARI ===== */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #5a5148;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.form-group input {
+  padding: 12px 16px;
+  border: 1.5px solid #e0d8cf;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  color: #2c2c2c;
+  background: #fff;
+  transition: all 0.35s ease;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #6b8f71;
+  box-shadow: 0 0 0 4px rgba(107, 143, 113, 0.1);
+  background: #fefefe;
+}
+
+.form-group input::placeholder {
+  color: #c5bdb3;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: #7a6f63;
+  cursor: pointer;
+}
+
+.remember-me input[type="checkbox"] {
+  accent-color: #6b8f71;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.forgot-link {
+  font-size: 0.82rem;
+  color: #6b8f71;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.forgot-link:hover {
+  color: #4a7c59;
+  text-decoration: underline;
+}
+
+/* Giriş butonu */
+.login-submit-btn {
+  padding: 13px;
+  background: linear-gradient(135deg, #5a7d61, #426b4a);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-submit-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.login-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(74, 124, 89, 0.3);
+}
+
+.login-submit-btn:hover::after {
+  opacity: 1;
+}
+
+.login-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #c5bdb3;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #ddd5cc, transparent);
+}
+
+/* Mesaj */
+.login-message {
+  margin-top: 16px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 0.88rem;
+  text-align: center;
+  animation: slideUp 0.4s ease;
+}
+
+.login-message.success {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.login-message.error {
+  background: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+/* Footer */
+.login-footer {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 0.88rem;
+  color: #9a8e80;
+}
+
+.login-footer a {
+  color: #5a7d61;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s;
+  border-bottom: 2px solid transparent;
+}
+
+.login-footer a:hover {
+  color: #426b4a;
+  border-bottom-color: #426b4a;
+}
+
+/* ===== SAĞ TARAF - GÖRSEL ===== */
+.login-right {
+  flex: 0.85;
+  position: relative;
+  overflow: hidden;
+  margin: 30px 30px 30px 0;
+  border-radius: 24px;
+}
+
+.login-right img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.login-right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 50%,
+      rgba(0, 0, 0, 0.4) 100%);
+  border-radius: 30px;
+}
+
+.login-right-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 50px 40px;
+}
+
+.login-right-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+.login-right-content p {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+  max-width: 350px;
+}
+
+/* Sağ alttaki küçük istatistik barı */
+.login-stats {
+  display: flex;
+  gap: 30px;
+}
+
+.login-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-stat strong {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.login-stat span {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 2px;
+}
+
+/* ===== ANİMASYON ===== */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSİVE ===== */
+@media (max-width: 900px) {
+  .login-page {
+    flex-direction: column-reverse;
+  }
+
+  .login-right {
+    flex: none;
+    min-height: 280px;
+    margin: 0;
+    border-radius: 0 0 30px 30px;
+  }
+
+  .login-left {
+    padding: 40px 25px;
+  }
+
+  .login-welcome {
+    font-size: 1.8rem;
+  }
+}

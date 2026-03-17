@@ -1,0 +1,506 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ===== GENEL WRAPPER ===== */
+.home-wrapper {
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: #2c2c2c;
+  background: #faf8f5;
+}
+
+/* ===== HERO BÖLÜMÜ ===== */
+.hero-section {
+  position: relative;
+  height: 550px;
+  border-radius: 0 0 40px 40px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 80px 20px 60px;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Çok hafif bir overlay — görseli boğmayacak, sadece yazıyı okunur kılacak */
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.15) 50%,
+    rgba(0,0,0,0.35) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  margin: 0 0 20px 0;
+  text-shadow: 0 2px 15px rgba(0,0,0,0.5), 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  color: #fff;
+  margin: 0 0 35px 0;
+  font-weight: 500;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.4);
+}
+
+/* ===== ARAMA ÇUBUĞU ===== */
+.search-bar {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(15px);
+  border-radius: 60px;
+  padding: 8px 8px 8px 28px;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.15);
+  max-width: 620px;
+  width: 100%;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-right: 1px solid #e8e0d8;
+  cursor: pointer;
+  transition: background 0.2s;
+  border-radius: 30px;
+}
+
+.search-field:hover {
+  background: rgba(0,0,0,0.03);
+}
+
+.search-field:last-of-type {
+  border-right: none;
+}
+
+.search-field .field-icon {
+  font-size: 1rem;
+  color: #a0917e;
+}
+
+.search-field .field-text {
+  font-size: 0.85rem;
+  color: #6b5e50;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.search-btn {
+  background: linear-gradient(135deg, #6b8f71, #4a7c59);
+  color: #fff;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.search-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(74, 124, 89, 0.4);
+}
+
+/* ===== POPÜLER ROTALAR ===== */
+.routes-section {
+  padding: 60px 20px 80px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.routes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.routes-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0;
+}
+
+.routes-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.routes-nav button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid #d4cdc4;
+  background: #fff;
+  color: #6b5e50;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.routes-nav button:hover {
+  background: #6b8f71;
+  color: #fff;
+  border-color: #6b8f71;
+}
+
+.routes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ===== ROTA KARTI ===== */
+.route-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.route-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+.card-image {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.route-card:hover .card-image img {
+  transform: scale(1.08);
+}
+
+.card-heart {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: #e74c3c;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: none;
+}
+
+.card-heart:hover {
+  background: #e74c3c;
+  color: #fff;
+  transform: scale(1.15);
+}
+
+.card-body {
+  padding: 18px 20px 20px;
+}
+
+.card-body h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0 0 14px 0;
+  line-height: 1.3;
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.card-info span {
+  font-size: 0.82rem;
+  color: #8c7e6f;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #6b8f71;
+  text-decoration: none;
+  padding: 6px 16px;
+  border: 1.5px solid #6b8f71;
+  border-radius: 20px;
+  transition: all 0.3s;
+}
+
+.card-link:hover {
+  background: #6b8f71;
+  color: #fff;
+}
+
+/* ===== NEDEN BİZ BÖLÜMÜ ===== */
+.why-section {
+  padding: 80px 20px;
+  background: #f0ebe4;
+}
+
+.why-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.why-container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0 0 50px 0;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.why-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 28px;
+  text-align: center;
+  transition: all 0.35s ease;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+.why-icon {
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+  display: block;
+}
+
+.why-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0 0 10px 0;
+}
+
+.why-card p {
+  font-size: 0.9rem;
+  color: #8c7e6f;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===== NASIL ÇALIŞIR ===== */
+.howto-section {
+  padding: 80px 20px;
+  background: #faf8f5;
+}
+
+.howto-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.howto-container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0 0 50px 0;
+}
+
+.howto-steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+.howto-steps::before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: 18%;
+  width: 64%;
+  height: 2px;
+  background: linear-gradient(90deg, #d4cdc4, #6b8f71, #d4cdc4);
+}
+
+.howto-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.step-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6b8f71, #4a7c59);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3);
+  transition: transform 0.3s;
+}
+
+.howto-step:hover .step-circle {
+  transform: scale(1.12);
+}
+
+.howto-step h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin: 0 0 6px 0;
+}
+
+.howto-step p {
+  font-size: 0.85rem;
+  color: #8c7e6f;
+  max-width: 200px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== CTA (ALT) ===== */
+.cta-section {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #3b5d44, #2a4633);
+  text-align: center;
+  border-radius: 40px 40px 0 0;
+}
+
+.cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 16px 0;
+}
+
+.cta-desc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.65);
+  max-width: 500px;
+  margin: 0 auto 35px auto;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: #fff;
+  color: #3b5d44;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 16px 40px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 30px 20px;
+  background: #2a4633;
+  text-align: center;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.85rem;
+}
+
+/* ===== RESPONSİVE ===== */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2.2rem; }
+  .search-bar { flex-direction: column; border-radius: 20px; padding: 15px; gap: 10px; }
+  .search-field { border-right: none; border-bottom: 1px solid #e8e0d8; padding: 12px; }
+  .search-field:last-of-type { border-bottom: none; }
+  .search-btn { width: 100%; }
+  .routes-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .howto-steps { flex-direction: column; gap: 30px; }
+  .howto-steps::before { display: none; }
+}
