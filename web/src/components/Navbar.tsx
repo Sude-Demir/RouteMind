@@ -59,8 +59,8 @@ const Navbar = () => {
       }}>
         <Link to="/" style={navLinkStyle("/")}>Ana Sayfa</Link>
         <Link to="/about" style={navLinkStyle("/about")}>Hakkımızda</Link>
+        <Link to="/cities" style={navLinkStyle("/cities")}>Şehirler</Link>
         <Link to="/" style={navLinkStyle("/rotalar")}>Rotalar</Link>
-        <Link to="/" style={navLinkStyle("/kesfet")}>Keşfet</Link>
         <Link to="/" style={navLinkStyle("/planla")}>Planla</Link>
       </div>
 
@@ -124,8 +124,8 @@ const Navbar = () => {
         <div className="nav-mobile-links">
           <Link to="/" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Ana Sayfa</Link>
           <Link to="/about" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Hakkımızda</Link>
+          <Link to="/cities" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Şehirler</Link>
           <Link to="/" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Rotalar</Link>
-          <Link to="/" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Keşfet</Link>
           <Link to="/" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Planla</Link>
         </div>
 

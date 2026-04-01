@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 // Token doğrulama middleware
-module.exports = function(req, res, next) {
+module.exports = function (req, res, next) {
   // Başlıkta (header) token var mı?
   const token = req.header('x-auth-token');
 

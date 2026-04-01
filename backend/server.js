@@ -18,9 +18,13 @@ mongoose.connect(MONGO_URI)
 // Yönlendirmeleri proje içine dahil et
 const indexRoutes = require("./routes/index");
 const authRoutes = require("./routes/authRoutes");
+const cityRoutes = require("./routes/cityRoutes");
+const countryRoutes = require("./routes/countryRoutes");
 
 app.use("/api", indexRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/cities", cityRoutes);
+app.use("/api/countries", countryRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server ${PORT} portunda çalışıyor`);
