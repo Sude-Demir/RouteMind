@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { validatePassword } from "../utils/validation";
 import "./Login.css";
 
 const Login = () => {
@@ -20,6 +21,14 @@ const Login = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // Frontend validation
+    const { isValid } = validatePassword(formData.password);
+    if (!isValid) {
+      setMessage("E-posta veya şifre hatalı");
+      setIsError(true);
+      return;
+    }
+
     try {
       const res = await axios.post("http://localhost:5000/api/auth/login", formData);
       setIsError(false);
@@ -36,7 +45,7 @@ const Login = () => {
       if (err.response && err.response.data.errors) {
         setMessage(err.response.data.errors.map((error: any) => error.msg).join(", "));
       } else {
-        setMessage("Bir hata oluştu");
+        setMessage("E-posta veya şifre hatalı");
       }
       setIsError(true);
     }

@@ -11,7 +11,12 @@ router.post(
   [
     check('name', 'İsim alanı zorunludur').not().isEmpty(),
     check('email', 'Lütfen geçerli bir e-posta adresi girin').isEmail(),
-    check('password', 'Lütfen en az 6 karakterli bir şifre girin').isLength({ min: 6 }),
+    check('password', 'Şifre en az 8 karakter olmalı, bir büyük harf, bir küçük harf, bir rakam ve bir özel karakter (@$!%*?&._-#/%^*+) içermelidir')
+      .isLength({ min: 8 })
+      .matches(/[a-zçğıöşü]/)
+      .matches(/[A-ZÇĞİÖŞÜ]/)
+      .matches(/[0-9]/)
+      .matches(/[@$!%*?&._\-#/%^*+]/),
   ],
   authController.register
 );
@@ -23,7 +28,12 @@ router.post(
   '/login',
   [
     check('email', 'Lütfen geçerli bir e-posta adresi girin').isEmail(),
-    check('password', 'Şifre alanı zorunludur').exists(),
+    check('password', 'E-posta veya şifre hatalı')
+      .isLength({ min: 8 })
+      .matches(/[a-zçğıöşü]/)
+      .matches(/[A-ZÇĞİÖŞÜ]/)
+      .matches(/[0-9]/)
+      .matches(/[@$!%*?&._\-#/%^*+]/),
   ],
   authController.login
 );

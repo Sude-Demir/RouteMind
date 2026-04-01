@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { validatePassword } from "../utils/validation";
 import "./Register.css";
 
 const Register = () => {
@@ -20,6 +21,14 @@ const Register = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Frontend validation
+    const { isValid } = validatePassword(formData.password);
+    if (!isValid) {
+      setMessage("Şifre en az 8 karakter olmalı, bir büyük harf, bir küçük harf, bir rakam ve bir özel karakter (@$!%*?&._-#/%^*+) içermelidir.");
+      setIsError(true);
+      return;
+    }
 
     try {
       const res = await axios.post("http://localhost:5000/api/auth/register", formData);
@@ -93,7 +102,7 @@ const Register = () => {
                 id="reg-password"
                 type="password" 
                 name="password" 
-                placeholder="En az 6 karakter" 
+                placeholder="Şifrenizi girin" 
                 value={formData.password} 
                 onChange={handleChange} 
               />
