@@ -1,7 +1,7 @@
 import { useState } from "react";
-import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { validatePassword } from "../utils/validation";
+import api from "../utils/api";
 import "./Login.css";
 
 const Login = () => {
@@ -30,7 +30,7 @@ const Login = () => {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", formData);
+      const res = await api.post("/auth/login", formData);
       setIsError(false);
       setMessage("Giriş başarılı! Yönlendiriliyorsunuz...");
       
