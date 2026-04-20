@@ -20,11 +20,13 @@ const indexRoutes = require("./routes/index");
 const authRoutes = require("./routes/authRoutes");
 const cityRoutes = require("./routes/cityRoutes");
 const countryRoutes = require("./routes/countryRoutes");
+const placeRoutes = require("./routes/placeRoutes");
 
 app.use("/api", indexRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/cities", cityRoutes);
 app.use("/api/countries", countryRoutes);
+app.use("/api/places", placeRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server ${PORT} portunda çalışıyor`);
