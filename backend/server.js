@@ -22,6 +22,7 @@ const cityRoutes = require("./routes/cityRoutes");
 const countryRoutes = require("./routes/countryRoutes");
 const placeRoutes = require("./routes/placeRoutes");
 const commentRoutes = require("./routes/commentRoutes");
+const tripRoutes = require("./routes/tripRoutes");
 
 app.use("/api", indexRoutes);
 app.use("/api/auth", authRoutes);
@@ -29,6 +30,7 @@ app.use("/api/cities", cityRoutes);
 app.use("/api/countries", countryRoutes);
 app.use("/api/places", placeRoutes);
 app.use("/api/comments", commentRoutes);
+app.use("/api/trips", tripRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server ${PORT} portunda çalışıyor`);

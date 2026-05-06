@@ -60,7 +60,7 @@ const Navbar = () => {
         <Link to="/" style={navLinkStyle("/")}>Ana Sayfa</Link>
         <Link to="/about" style={navLinkStyle("/about")}>Hakkımızda</Link>
         <Link to="/explore" style={navLinkStyle("/explore")}>Keşfet</Link>
-        <Link to="/" style={navLinkStyle("/rotalar")}>Rotalar</Link>
+        <Link to="/trips" style={navLinkStyle("/trips")}>Geziler</Link>
       </div>
 
       {/* Sağ - Kullanıcı & Hamburger */}
@@ -81,7 +81,7 @@ const Navbar = () => {
                 <Link to="/" className="nav-dropdown-item">
                   ❤️ Favorilerim
                 </Link>
-                <Link to="/" className="nav-dropdown-item">
+                <Link to="/my-plans" className="nav-dropdown-item">
                   📅 Planlarım
                 </Link>
                 <div className="nav-dropdown-divider"></div>
@@ -124,7 +124,7 @@ const Navbar = () => {
           <Link to="/" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Ana Sayfa</Link>
           <Link to="/about" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Hakkımızda</Link>
           <Link to="/explore" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Keşfet</Link>
-          <Link to="/" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Rotalar</Link>
+          <Link to="/trips" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Geziler</Link>
         </div>
 
         <div className="nav-mobile-user">

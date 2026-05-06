@@ -1,0 +1,384 @@
+.myplans-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  min-height: 80vh;
+}
+
+/* Header */
+.myplans-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 35px;
+}
+
+.myplans-header-text h1 {
+  font-size: 2.4rem;
+  color: #1a3c34;
+  margin: 0 0 6px 0;
+}
+
+.myplans-header-text p {
+  color: #6b5e50;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.myplans-explore-btn {
+  background: #1a3c34;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.myplans-explore-btn:hover {
+  background: #122b25;
+  transform: translateY(-2px);
+}
+
+/* Stats */
+.myplans-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.myplans-stat {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  border: 1px solid #ebe5dc;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+}
+
+.myplans-stat-num {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1a3c34;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.myplans-stat-label {
+  font-size: 0.85rem;
+  color: #9e8e7e;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* List */
+.myplans-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Card */
+.myplan-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  gap: 0;
+  border: 1px solid #ebe5dc;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.myplan-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.09);
+}
+
+/* Image Column */
+.myplan-img-col {
+  position: relative;
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.myplan-img-col img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.myplan-days-badge {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: white;
+  backdrop-filter: blur(4px);
+}
+
+/* Info Column */
+.myplan-info-col {
+  flex: 1;
+  padding: 25px 25px 25px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.myplan-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.myplan-destination {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #e67e22;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.myplan-creator-badge {
+  background: #e8f5f1;
+  color: #1a3c34;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.myplan-title {
+  font-size: 1.35rem;
+  color: #1a3c34;
+  margin: 0;
+  font-weight: 700;
+}
+
+.myplan-desc {
+  color: #6b5e50;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.myplan-meta {
+  display: flex;
+  gap: 30px;
+}
+
+.myplan-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.myplan-meta-icon {
+  font-size: 1.3rem;
+}
+
+.myplan-meta-label {
+  font-size: 0.78rem;
+  color: #9e8e7e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.myplan-meta-val {
+  font-size: 0.9rem;
+  color: #2c2c2c;
+  font-weight: 600;
+}
+
+/* Progress */
+.myplan-progress-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.myplan-progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: #6b5e50;
+  font-weight: 600;
+}
+
+.myplan-progress-bar {
+  height: 6px;
+  background: #ebe5dc;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.myplan-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1a3c34, #2d6a5a);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.myplan-participants {
+  display: flex;
+  margin-top: 5px;
+}
+
+.myplan-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1a3c34;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  margin-right: -6px;
+}
+
+.myplan-avatar-more {
+  background: #f39c12;
+  font-size: 0.68rem;
+}
+
+/* Action Column */
+.myplan-action-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 25px 25px 10px;
+  min-width: 140px;
+  border-left: 1px solid #f5f0ea;
+}
+
+.myplan-leave-btn {
+  background: #fdf2f2;
+  color: #e74c3c;
+  border: 2px solid #fadbd8;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.myplan-leave-btn:hover {
+  background: #fadbd8;
+}
+
+.myplan-owner-tag {
+  background: #fffbf0;
+  color: #f39c12;
+  border: 2px solid #fdeebf;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-align: center;
+}
+
+/* Empty */
+.myplans-empty {
+  text-align: center;
+  padding: 80px 20px;
+  background: white;
+  border-radius: 20px;
+  border: 1px dashed #d1c7bd;
+}
+
+.myplans-empty-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.myplans-empty h2 {
+  color: #1a3c34;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.myplans-empty p {
+  color: #6b5e50;
+  margin-bottom: 30px;
+  font-size: 1.05rem;
+}
+
+/* Loading */
+.myplans-loading {
+  text-align: center;
+  padding: 80px 20px;
+  color: #6b5e50;
+}
+
+.myplans-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ebe5dc;
+  border-top: 4px solid #1a3c34;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.myplans-error {
+  background: #fdf2f2;
+  color: #e74c3c;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .myplans-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  .myplans-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .myplan-card {
+    flex-direction: column;
+  }
+  .myplan-img-col {
+    width: 100%;
+    height: 200px;
+  }
+  .myplan-action-col {
+    border-left: none;
+    border-top: 1px solid #f5f0ea;
+    padding: 20px;
+  }
+  .myplan-meta {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
