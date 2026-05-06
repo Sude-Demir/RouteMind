@@ -157,8 +157,26 @@ const seedPlaces = async () => {
 
       const { cityName, ...placeFields } = placeData;
 
+      const externalComments = [
+        {
+          authorName: "Ahmet Y.",
+          rating: placeFields.rating >= 4.5 ? 5 : 4,
+          text: "Gerçekten büyüleyici bir yer. Herkese gidip görmesini tavsiye ederim. Atmosferi çok etkileyiciydi.",
+          date: "2023-10-12",
+          source: "Google Haritalar"
+        },
+        {
+          authorName: "Sarah M.",
+          rating: placeFields.rating >= 4.5 ? 4 : 3,
+          text: "Beautiful place but it was a bit too crowded. Try to visit early in the morning to avoid long queues.",
+          date: "2024-01-05",
+          source: "TripAdvisor"
+        }
+      ];
+
       await Place.create({
         ...placeFields,
+        externalComments,
         city: cityId,
         country: turkey._id,
       });

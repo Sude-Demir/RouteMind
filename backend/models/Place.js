@@ -79,6 +79,23 @@ const PlaceSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  routeMindRating: {
+    type: Number,
+    default: 0,
+    min: 0,
+    max: 5,
+  },
+  routeMindReviewCount: {
+    type: Number,
+    default: 0,
+  },
+  externalComments: [{
+    authorName: String,
+    rating: Number,
+    text: String,
+    date: String,
+    source: { type: String, default: 'Google Haritalar' }
+  }],
   visitDuration: {
     type: String,
     default: '',
