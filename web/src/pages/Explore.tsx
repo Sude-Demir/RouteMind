@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import api from '../utils/api';
+import MapView, { MapMarker } from '../components/MapView';
 import './Explore.css';
 
 interface Country {
@@ -40,6 +41,8 @@ interface Place {
   visitDuration: string;
   entranceFee: string;
   openingHours: string;
+  latitude: number;
+  longitude: number;
   tags: string[];
   isFeatured: boolean;
   city: { _id: string; name: string; code: number; region: string };
@@ -83,13 +86,13 @@ const Explore = () => {
   // City filters
   const [selectedRegion, setSelectedRegion] = useState('Tümü');
   const [citySortBy, setCitySortBy] = useState('code-asc');
-  const [cityViewMode, setCityViewMode] = useState<'card' | 'table'>('card');
+  const [cityViewMode, setCityViewMode] = useState<'card' | 'table' | 'map'>('card');
   const [regions, setRegions] = useState<string[]>([]);
 
   // Place filters
   const [selectedCategory, setSelectedCategory] = useState('Tümü');
   const [placeSortBy, setPlaceSortBy] = useState('rating-desc');
-  const [placeViewMode, setPlaceViewMode] = useState<'card' | 'list'>('card');
+  const [placeViewMode, setPlaceViewMode] = useState<'card' | 'list' | 'map'>('card');
 
   // Sync state with URL
   useEffect(() => {
@@ -252,6 +255,34 @@ const Explore = () => {
     return CATEGORIES.filter(c => c === 'Tümü' || cats.has(c));
   }, [places]);
 
+  // City map markers
+  const cityMapMarkers: MapMarker[] = useMemo(() => {
+    return filteredCities.map(city => ({
+      id: city._id,
+      lat: city.latitude,
+      lng: city.longitude,
+      title: city.name,
+      description: city.description,
+      type: 'city' as const,
+    }));
+  }, [filteredCities]);
+
+  // Place map markers
+  const placeMapMarkers: MapMarker[] = useMemo(() => {
+    return filteredPlaces.map(place => ({
+      id: place._id,
+      lat: place.latitude,
+      lng: place.longitude,
+      title: place.name,
+      description: place.shortDescription,
+      category: place.category,
+      imageUrl: place.imageUrl,
+      rating: place.rating,
+      slug: place.slug,
+      type: 'place' as const,
+    })).filter(m => m.lat && m.lng);
+  }, [filteredPlaces]);
+
   const formatPopulation = (pop: number) => {
     return pop.toLocaleString('tr-TR');
   };
@@ -389,6 +420,11 @@ const Explore = () => {
                     onClick={() => setCityViewMode('table')}
                     title="Tablo Görünümü"
                   >☰</button>
+                  <button
+                    className={`exp-view-btn exp-view-map-btn ${cityViewMode === 'map' ? 'active' : ''}`}
+                    onClick={() => setCityViewMode('map')}
+                    title="Harita Görünümü"
+                  >🗺️</button>
                 </div>
               </div>
             </section>
@@ -401,6 +437,17 @@ const Explore = () => {
               <div className="exp-empty">
                 <h3>Sonuç Bulunamadı</h3>
                 <p>Kriterlerinize uygun şehir bulunamadı.</p>
+              </div>
+            ) : cityViewMode === 'map' ? (
+              <div className="exp-map-section">
+                <MapView
+                  markers={cityMapMarkers}
+                  height="550px"
+                  onMarkerClick={(m) => {
+                    const city = filteredCities.find(c => c._id === m.id);
+                    if (city) handleSelectCity(city);
+                  }}
+                />
               </div>
             ) : cityViewMode === 'card' ? (
               <div className="exp-cities-grid">
@@ -523,6 +570,11 @@ const Explore = () => {
                   onClick={() => setPlaceViewMode('list')}
                   title="Liste Görünümü"
                 >☰</button>
+                <button
+                  className={`exp-view-btn exp-view-map-btn ${placeViewMode === 'map' ? 'active' : ''}`}
+                  onClick={() => setPlaceViewMode('map')}
+                  title="Harita Görünümü"
+                >🗺️</button>
               </div>
             </div>
           </section>
@@ -549,6 +601,18 @@ const Explore = () => {
             <div className="exp-empty">
               <h3>Sonuç Bulunamadı</h3>
               <p>Kriterlerinize uygun mekan bulunamadı.</p>
+            </div>
+          ) : placeViewMode === 'map' ? (
+            <div className="exp-map-section">
+              <MapView
+                markers={placeMapMarkers}
+                height="550px"
+                center={selectedCity ? [selectedCity.latitude, selectedCity.longitude] : undefined}
+                zoom={12}
+                onMarkerClick={(m) => {
+                  if (m.slug) navigate(`/places/${m.slug}`);
+                }}
+              />
             </div>
           ) : placeViewMode === 'card' ? (
             <div className="exp-places-grid">

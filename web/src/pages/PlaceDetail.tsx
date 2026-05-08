@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import api from '../utils/api';
+import MapView, { MapMarker } from '../components/MapView';
 import './PlaceDetail.css';
 
 interface Comment {
@@ -263,31 +264,49 @@ const PlaceDetail = () => {
               </div>
             )}
 
-            {/* Map */}
+            {/* Interactive Map */}
             <div className="pd-card pd-map-card">
               <h2 className="pd-card-title">🗺️ Konum</h2>
               {place.address && (
                 <p className="pd-address">📍 {place.address}</p>
               )}
-              <a
-                href={mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="pd-map-btn"
-              >
-                Google Maps'te Aç →
-              </a>
-              <div className="pd-map-embed">
-                <iframe
-                  title={`${place.name} harita`}
-                  src={`https://maps.google.com/maps?q=${place.latitude},${place.longitude}&z=14&output=embed`}
-                  width="100%"
-                  height="280"
-                  style={{ border: 0, borderRadius: '12px' }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
+              <div className="pd-map-actions">
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pd-map-btn"
+                >
+                  🌐 Google Maps'te Aç
+                </a>
+                <a
+                  href={`https://www.google.com/maps/dir/?api=1&destination=${place.latitude},${place.longitude}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="pd-map-btn pd-map-btn-nav"
+                >
+                  🧭 Yol Tarifi Al
+                </a>
+              </div>
+              <div className="pd-interactive-map">
+                <MapView
+                  markers={[{
+                    id: place._id,
+                    lat: place.latitude,
+                    lng: place.longitude,
+                    title: place.name,
+                    description: place.shortDescription,
+                    category: place.category,
+                    imageUrl: place.imageUrl,
+                    rating: place.rating,
+                    slug: place.slug,
+                  }]}
+                  center={[place.latitude, place.longitude]}
+                  zoom={15}
+                  height="350px"
+                  singleMode={true}
+                  showNavigation={true}
+                />
               </div>
             </div>
           </div>

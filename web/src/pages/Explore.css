@@ -639,3 +639,15 @@
       display: none;
     }
   }
+
+  /* ── Map View ── */
+  .exp-view-map-btn {
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+
+  .exp-map-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
