@@ -48,6 +48,14 @@ const TripSchema = new mongoose.Schema({
     enum: ['upcoming', 'ongoing', 'completed'],
     default: 'upcoming',
   },
+  itinerary: {
+    type: Array,
+    default: [],
+  },
+  isAiGenerated: {
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,

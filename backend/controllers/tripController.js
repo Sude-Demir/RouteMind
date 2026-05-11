@@ -43,7 +43,7 @@ const createTrip = async (req, res) => {
   }
 
   try {
-    const { title, destination, description, startDate, endDate, maxParticipants, imageUrl } = req.body;
+    const { title, destination, description, startDate, endDate, maxParticipants, imageUrl, itinerary, isAiGenerated } = req.body;
 
     const newTrip = new Trip({
       title,
@@ -53,6 +53,8 @@ const createTrip = async (req, res) => {
       endDate,
       maxParticipants,
       imageUrl,
+      itinerary,
+      isAiGenerated,
       creator: req.user.id,
       participants: [req.user.id], // Oluşturan kişi otomatik katılır
     });

@@ -9,6 +9,7 @@ import MyPlans from "./pages/MyPlans";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import AdminPanel from "./pages/AdminPanel";
+import AIPlanner from "./pages/AIPlanner";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/explore" element={<Explore />} />
         <Route path="/places/:slug" element={<PlaceDetail />} />
         <Route path="/trips" element={<Trips />} />
+        <Route path="/ai-planner" element={<AIPlanner />} />
         <Route path="/trips/create" element={
           <ProtectedRoute>
             <CreateTrip />

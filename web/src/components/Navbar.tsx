@@ -61,6 +61,7 @@ const Navbar = () => {
         <Link to="/about" style={navLinkStyle("/about")}>Hakkımızda</Link>
         <Link to="/explore" style={navLinkStyle("/explore")}>Keşfet</Link>
         <Link to="/trips" style={navLinkStyle("/trips")}>Geziler</Link>
+        <Link to="/ai-planner" style={navLinkStyle("/ai-planner")}>✨ AI Planlayıcı</Link>
       </div>
 
       {/* Sağ - Kullanıcı & Hamburger */}
@@ -125,6 +126,7 @@ const Navbar = () => {
           <Link to="/about" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Hakkımızda</Link>
           <Link to="/explore" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Keşfet</Link>
           <Link to="/trips" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>Geziler</Link>
+          <Link to="/ai-planner" className="nav-mobile-link" onClick={() => setIsMobileMenuOpen(false)}>✨ AI Planlayıcı</Link>
         </div>
 
         <div className="nav-mobile-user">
